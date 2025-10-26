@@ -1,0 +1,103 @@
+<div
+  class="bg-purple-900 absolute top-0 left-0 bg-gradient-to-b from-gray-900 via-gray-900 to-purple-800 bottom-0 leading-5 h-full w-full overflow-hidden"
+></div>
+<div
+  class="relative min-h-screen sm:flex sm:flex-row justify-center bg-transparent rounded-3xl shadow-xl"
+>
+  <div class="flex-col flex self-center lg:px-14 sm:max-w-4xl xl:max-w-md z-10">
+    <div class="self-start hidden lg:flex flex-col text-gray-300">
+      <h1 class="my-3 font-semibold text-4xl">Bienvenido</h1>
+      <p class="pr-3 text-sm opacity-75">
+        Esperamos que disfrutes del servico de antisipacion de residuos que
+        ofrecemos.
+      </p>
+    </div>
+  </div>
+  <div class="flex justify-center self-center z-10">
+    <div class="p-12 bg-white mx-auto rounded-3xl w-96">
+      <div class="mb-7">
+        <h3 class="font-semibold text-2xl text-gray-800">Iniciar sesion</h3>
+        <p class="text-gray-400">
+          O ¿Crear cuenta?
+        </p>
+      </div>
+      <div class="space-y-6">
+        <div class="">
+          <input
+            [(ngModel)]="email"
+            class="w-full text-sm px-4 py-3 bg-gray-200 focus:bg-gray-100 border border-gray-200 rounded-lg focus:outline-none focus:border-purple-400"
+            type=""
+            placeholder="Username"
+          />
+        </div>
+
+        <div class="relative" x-data="{ show: true }">
+          <input
+            [(ngModel)]="password"
+            placeholder="Password"
+            type="password"
+            style="color: #000000"
+            class="text-sm text-gray-200 px-4 py-3 rounded-lg w-full bg-gray-200 focus:bg-gray-100 border border-gray-200 focus:outline-none focus:border-purple-400"
+          />
+          <div
+            class="flex items-center absolute inset-y-0 right-0 mr-3 text-sm leading-5"
+          ></div>
+        </div>
+
+        <div class="flex items-center justify-between">
+          <div class="text-sm ml-auto">
+            <a href="#" class="text-black hover:text-purple-600">
+              ¿Olvidaste tu contraseña?
+            </a>
+          </div>
+        </div>
+        <div>
+          <button
+            (click)="login()"
+            type="button"
+            class="w-full flex justify-center bg-blue-600 hover:bg-blue-700 text-gray-100 p-3 rounded-lg tracking-wide font-semibold cursor-pointer transition ease-in duration-500"
+          >
+            Iniciar sesion
+
+          </button>
+        </div>
+        <div class="flex flex-col items-center justify-center my-5 space-y-3">
+  <!-- Línea divisora -->
+  <div class="flex items-center justify-center space-x-2">
+    <span class="h-px w-16 bg-gray-300"></span>
+    <span class="text-gray-400 text-sm font-medium">O regístrate con</span>
+    <span class="h-px w-16 bg-gray-300"></span>
+  </div>
+
+  <!-- Botones sociales -->
+  <div class="flex space-x-3 mt-2">
+    <!-- Botón Facebook -->
+    <button
+      type="button"
+      class="flex items-center justify-center bg-[#1877F2] hover:bg-[#166FE5] text-white text-sm font-medium py-2 px-4 rounded-lg shadow-md transition duration-300"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" class="h-4 w-4 mr-2">
+        <path fill="white" d="M24 4C12.954 4 4 12.954 4 24c0 9.837 7.163 17.987 16.5 19.745V30.59h-4.97v-5.97h4.97v-4.39c0-4.9 2.915-7.61 7.376-7.61 2.138 0 4.373.382 4.373.382v4.79h-2.465c-2.43 0-3.185 1.509-3.185 3.056v3.772h5.422l-.868 5.97h-4.554v13.155C36.837 41.987 44 33.837 44 24 44 12.954 35.046 4 24 4z"/>
+      </svg>
+      Facebook
+    </button>
+
+    <!-- Botón Google -->
+    <button
+      type="button"
+      class="flex items-center justify-center bg-white hover:bg-gray-100 text-gray-700 text-sm font-medium py-2 px-4 rounded-lg shadow-md border border-gray-200 transition duration-300"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" class="h-4 w-4 mr-2">
+        <path fill="#FFC107" d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24c0,11.045,8.955,20,20,20c11.045,0,20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z"/>
+        <path fill="#FF3D00" d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z"/>
+        <path fill="#4CAF50" d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z"/>
+        <path fill="#1976D2" d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z"/>
+      </svg>
+      Google
+    </button>
+  </div>
+</div>
+
+    </div>
+
+   
