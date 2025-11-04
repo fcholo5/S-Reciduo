@@ -3,46 +3,42 @@ name: Build and Deploy Angular
 on:
   push:
     branches:
-      - main  # Rama que dispara el deploy
+      - main
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      # 1️⃣ Obtener el código
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # 2️⃣ Instalar Node.js
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '18'
 
-      # 3️⃣ Instalar dependencias
       - name: Install dependencies
         working-directory: ./frontend
         run: npm ci
 
-      # 4️⃣ Build Angular usando npx (sin necesidad de instalar CLI global)
       - name: Build Angular app
         working-directory: ./frontend
         run: npx ng build --configuration production --output-path=dist/frontend-app
 
-      # 5️⃣ Ajustar base href en index.html antes del deploy
+      # Ajustar base href en index.html dentro de browser/
       - name: Ajustar base href
         run: |
-          sed -i 's|<base href="/">|<base href="/fabian_site/deploy-frontend/">|' frontend/dist/frontend-app/index.html
+          sed -i 's|<base href="/">|<base href="/fabian_site/deploy-frontend/">|' frontend/dist/frontend-app/browser/index.html
 
-      # 6️⃣ Subir al servidor vía SSH
+      # Deploy usando la carpeta browser/
       - name: Deploy to server via SSH
         uses: appleboy/scp-action@v0.1.7
         with:
           host: ${{ secrets.SERVER_HOST }}
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          source: "frontend/dist/frontend-app/**"
+          source: "frontend/dist/frontend-app/browser/**"
           target: "/var/www/fabian_site/deploy-frontend"
           overwrite: true
           debug: true
