@@ -1,20 +1,21 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
+import { Navbar } from './components/navbar/navbar';
 import { Sidebar } from './components/sidebar/sidebar';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, Sidebar],
+  imports: [RouterOutlet, Navbar, Sidebar],
   template: `
+    <app-navbar></app-navbar>
     <div class="layout">
       <app-sidebar></app-sidebar>
-      <div class="main-content">
+      <div class="content">
         <router-outlet></router-outlet>
       </div>
     </div>
   `,
-  styleUrls: ['./app.css']
+  styleUrl: './app.css'
 })
 export class App {}

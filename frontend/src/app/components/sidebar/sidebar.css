@@ -1,0 +1,51 @@
+.sidebar {
+  width: 230px;
+  background-color: #0f766e;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 0;
+}
+
+.logo-section {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.logo {
+  font-size: 2rem;
+}
+
+.logo-section h1 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-top: 0.25rem;
+}
+
+.menu {
+  list-style: none;
+  padding: 0;
+}
+
+.menu li {
+  padding: 0.8rem 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  border-left: 4px solid transparent;
+}
+
+.menu li i {
+  font-size: 1.2rem;
+}
+
+.menu li:hover {
+  background-color: #115e59;
+}
+
+.menu li.active {
+  background-color: #134e4a;
+  border-left-color: #facc15;
+}

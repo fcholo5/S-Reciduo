@@ -1,0 +1,34 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #0f766e;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.navbar h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.notif-area {
+  position: relative;
+}
+
+.notif-icon {
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.notif-badge {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background: #f97316;
+  color: white;
+  border-radius: 9999px;
+  font-size: 0.7rem;
+  padding: 0.15rem 0.4rem;
+}
